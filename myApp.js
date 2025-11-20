@@ -15,12 +15,22 @@ const personSchema = new mongoose.Schema({
 });
 
 // Modelo
-let Person = mongoose.model("Person", personSchema);
+let Person = mongoose.model("Person", personSchema); 
 
-// Funciones de FCC (vacías por ahora)
+
 const createAndSavePerson = (done) => {
-  done(null);
+  const person = new Person({
+    name: "Yuzu",
+    age: 20,
+    favoriteFoods: ["ramen", "sushi", "burrito"]
+  });
+
+  person.save((err, data) => {
+    if (err) return done(err);
+    return done(null, data);
+  });
 };
+
 
 const createManyPeople = (arrayOfPeople, done) => {
   done(null);
