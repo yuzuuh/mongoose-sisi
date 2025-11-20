@@ -33,8 +33,12 @@ const createAndSavePerson = (done) => {
 
 
 const createManyPeople = (arrayOfPeople, done) => {
-  done(null);
+  Person.create(arrayOfPeople, (err, data) => {
+    if (err) return done(err);
+    return done(null, data);
+  });
 };
+
 
 const findPeopleByName = (personName, done) => {
   done(null);
@@ -81,3 +85,4 @@ exports.findAndUpdate = findAndUpdate;
 exports.removeById = removeById;
 exports.removeManyPeople = removeManyPeople;
 exports.queryChain = queryChain;
+t 
