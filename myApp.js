@@ -72,7 +72,7 @@ const queryChain = (done) => {
   done(null);
 };
 
-// EXPORTS (FCC los usa)
+
 exports.PersonModel = Person;
 exports.createAndSavePerson = createAndSavePerson;
 exports.createManyPeople = createManyPeople;
@@ -85,4 +85,3 @@ exports.findAndUpdate = findAndUpdate;
 exports.removeById = removeById;
 exports.removeManyPeople = removeManyPeople;
 exports.queryChain = queryChain;
-t 
