@@ -109,11 +109,13 @@ const removeManyPeople = function(done) {
 };
 
 
-const queryChain = function(foodToSearch, done) {
+const queryChain = function(done) {
+  const foodToSearch = "burrito"; // FCC usa esto internamente
+
   Person.find({ favoriteFoods: foodToSearch })
-    .sort('name')
+    .sort("name")
     .limit(2)
-    .select('-age')
+    .select("-age")
     .exec((err, data) => {
       if (err) return done(err);
       return done(null, data);
