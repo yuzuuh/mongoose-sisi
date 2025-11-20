@@ -109,9 +109,17 @@ const removeManyPeople = function(done) {
 };
 
 
-const queryChain = (done) => {
-  done(null);
+const queryChain = function(foodToSearch, done) {
+  Person.find({ favoriteFoods: foodToSearch })
+    .sort('name')
+    .limit(2)
+    .select('-age')
+    .exec((err, data) => {
+      if (err) return done(err);
+      return done(null, data);
+    });
 };
+
 
 
 exports.PersonModel = Person;
